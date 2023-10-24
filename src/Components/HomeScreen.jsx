@@ -1,0 +1,274 @@
+import {
+  Dimensions,
+  Image,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import React from 'react';
+import { LinearGradient } from 'expo-linear-gradient';
+import colors from './config/colors';
+
+import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
+const avatar = require('../../assets/avatar/avatar.jpg');
+import cars from './data/cars';
+import HeaderHomeScreen from './config/FooterHomeScreen';
+import icons from './data/icons';
+import FooterHomeScreen from './config/FooterHomeScreen';
+
+const { width } = Dimensions.get('window');
+
+const gradient = [colors['dark-gray'], colors.gray];
+
+const HomeScreen = () => {
+  return (
+    <SafeAreaView style={{ flex: 1 }}>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <TouchableOpacity
+          style={{
+            width: 50,
+            height: 50,
+            borderRadius: 30,
+            marginLeft: 20,
+            marginTop: 50,
+            backgroundColor: 'black',
+          }}
+        />
+
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+          }}
+        ></View>
+        <View
+          style={{
+            position: 'relative',
+            marginVertical: 10 * 3,
+            marginTop: 20,
+            marginBottom: 10,
+            margin: '5%',
+            height: 50,
+            justifyContent: 'center',
+          }}
+        >
+          <LinearGradient colors={gradient} style={{ borderRadius: 14 }}>
+            <TextInput
+              style={{
+                padding: 10 * 1.5,
+                borderRadius: 10 * 2,
+                color: colors.light,
+                fontSize: 10 * 1.5,
+                paddingLeft: 10 * 4,
+              }}
+              placeholder="Search"
+              placeholderTextColor={colors['light']}
+            />
+            <Ionicons
+              style={{
+                position: 'absolute',
+                bottom: 10,
+                left: 10,
+              }}
+              size={10 * 2.5}
+              color={colors.light}
+              name="search"
+            />
+          </LinearGradient>
+        </View>
+
+        <LinearGradient
+          colors={gradient}
+          style={{
+            margin: '5%',
+            padding: 10 * 3,
+            height: 200,
+            borderRadius: 10 * 3,
+            flexDirection: 'row',
+          }}
+        >
+          <View
+            style={{
+              maxWidth: '50%',
+            }}
+          >
+            <Text
+              style={{
+                color: colors.light,
+                fontSize: 10 * 3.5,
+                fontWeight: '800',
+                marginBottom: 10,
+              }}
+            >
+              20%
+            </Text>
+            <Text
+              style={{
+                color: colors.light,
+                fontWeight: '700',
+                fontSize: 10 * 2,
+                marginBottom: 10,
+              }}
+            >
+              New Arrival
+            </Text>
+            <Text
+              style={{
+                color: colors.light,
+              }}
+            >
+              Get a new car discount, only valid this friday
+            </Text>
+          </View>
+          <View
+            style={{
+              width: '50%',
+              position: 'relative',
+            }}
+          >
+            <Image
+              style={{
+                width: '100%',
+                height: 100,
+              }}
+              source={require('../../assets/cars/bmw-wlcom.png')}
+            />
+          </View>
+        </LinearGradient>
+        <View
+          style={{
+            margin: '5%',
+            marginVertical: 10 * 2,
+          }}
+        >
+          <Text
+            style={{
+              color: colors.light,
+              fontSize: 10 * 2,
+              fontWeight: '900',
+            }}
+          >
+            <View>
+              <Text style={{ color: 'black', fontSize: 20 }}>Top Deals</Text>
+            </View>
+          </Text>
+          <View
+            style={{
+              marginTop: 10 * 2,
+              flexDirection: 'row',
+              flexWrap: 'wrap',
+              justifyContent: 'space-between',
+            }}
+          >
+            {cars.map(car => (
+              <LinearGradient
+                key={car.id}
+                colors={gradient}
+                style={{
+                  height: 230,
+                  width: width / 2 - 10 * 3,
+                  borderRadius: 10 * 2,
+                  marginBottom: 10 * 2,
+                  padding: 10,
+                }}
+              >
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                  }}
+                >
+                  <View
+                    style={{
+                      flexDirection: 'row',
+                      alignItems: 'center',
+                    }}
+                  >
+                    <Ionicons
+                      name="star"
+                      color={colors.yellow}
+                      size={10 * 1.6}
+                    />
+                    <Text
+                      style={{
+                        color: colors.light,
+                        marginLeft: 10 / 2,
+                      }}
+                    >
+                      {car.rating}
+                    </Text>
+                  </View>
+                  <TouchableOpacity>
+                    <Ionicons name="heart" color={colors.light} size={10 * 2} />
+                  </TouchableOpacity>
+                </View>
+                <Image
+                  style={{
+                    width: '100%',
+                    height: 100,
+                  }}
+                  source={car.image}
+                  resizeMode="contain"
+                />
+                <Text
+                  style={{
+                    fontSize: 10 * 1.8,
+                    color: colors.light,
+                  }}
+                >
+                  {car.name}
+                </Text>
+                <View
+                  style={{
+                    marginVertical: 10,
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                  }}
+                >
+                  <Text
+                    style={{
+                      color: colors.light,
+                      fontSize: 10 * 1.5,
+                    }}
+                  >
+                    $ {car.price}
+                  </Text>
+                  <TouchableOpacity
+                    style={{
+                      borderRadius: 10 / 2,
+                      overflow: 'hidden',
+                    }}
+                  >
+                    <LinearGradient
+                      style={{
+                        padding: 10 / 3,
+                        paddingHorizontal: 10 / 2,
+                      }}
+                      colors={[colors['dark-gray'], colors.dark]}
+                    >
+                      <Ionicons
+                        name="arrow-forward"
+                        size={10 * 2}
+                        color={colors.light}
+                      />
+                    </LinearGradient>
+                  </TouchableOpacity>
+                </View>
+              </LinearGradient>
+            ))}
+          </View>
+        </View>
+      </ScrollView>
+      <FooterHomeScreen />
+    </SafeAreaView>
+  );
+};
+
+export default HomeScreen;
+
+const styles = StyleSheet.create({});
