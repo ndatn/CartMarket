@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 import colors from './config/colors';
 
@@ -19,12 +19,24 @@ import cars from './data/cars';
 import HeaderHomeScreen from './config/FooterHomeScreen';
 import icons from './data/icons';
 import FooterHomeScreen from './config/FooterHomeScreen';
+import { useDispatch, useSelector } from 'react-redux';
+import { carSelector } from '../store/cars/selector';
+import { getCarsAsyncThunk } from '../store/cars/thunk';
 
 const { width } = Dimensions.get('window');
 
 const gradient = [colors['dark-gray'], colors.gray];
 
 const HomeScreen = () => {
+
+  const cars = useSelector(carSelector)
+  const dispatch = useDispatch()
+  console.log(cars)
+
+  useEffect(() => {
+    dispatch(getCarsAsyncThunk())
+  }, [])
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -212,7 +224,9 @@ const HomeScreen = () => {
                     width: '100%',
                     height: 100,
                   }}
-                  source={car.image}
+                  source={{
+                    uri: car.image
+                  }}
                   resizeMode="contain"
                 />
                 <Text
