@@ -28,14 +28,12 @@ const { width } = Dimensions.get('window');
 const gradient = [colors['dark-gray'], colors.gray];
 
 const HomeScreen = () => {
-
-  const cars = useSelector(carSelector)
-  const dispatch = useDispatch()
-  console.log(cars)
+  const cars = useSelector(carSelector);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getCarsAsyncThunk())
-  }, [])
+    dispatch(getCarsAsyncThunk());
+  }, []);
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -176,7 +174,7 @@ const HomeScreen = () => {
               justifyContent: 'space-between',
             }}
           >
-            {cars.map(car => (
+            {cars?.map(car => (
               <LinearGradient
                 key={car.id}
                 colors={gradient}
@@ -225,7 +223,7 @@ const HomeScreen = () => {
                     height: 100,
                   }}
                   source={{
-                    uri: car.image
+                    uri: car.image,
                   }}
                   resizeMode="contain"
                 />

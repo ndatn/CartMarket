@@ -10,20 +10,20 @@ import HomeScreen from '../Components/HomeScreen';
 const Stack = createStackNavigator();
 
 const Navigator = () => {
-    return (
-        <NavigationContainer>
-            <Stack.Navigator
-                screenOptions={{
-                headerShown: false,
-                }}
-            >
-                {/* <Stack.Screen name="Main" component={MainScreen} />
-                <Stack.Screen name="Login" component={Login} />
-                <Stack.Screen name="Register" component={Register} /> */}
-                <Stack.Screen name="HomeScreen" component={HomeScreen} />
-            </Stack.Navigator>
-        </NavigationContainer>
-    )
-}
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
+        <Stack.Screen name="Main" component={MainScreen} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Register" component={Register} />
+        <Stack.Screen name="HomeScreen" component={HomeScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
 
-export default Navigator
+export default Navigator;
