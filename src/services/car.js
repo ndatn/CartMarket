@@ -10,3 +10,13 @@ export const getCarsAsync = async () => {
         return error
     }
 }
+
+export const getCarByIdAsync = async (id) => {
+    try {
+        const response = await axios.get(`${REQUEST_URL}/cars/${id}`)
+        return response.data
+    } catch (error) {
+        console.log(error)
+        return error
+    }
+}
