@@ -1,0 +1,12 @@
+{
+  "users": [
+    {
+      "email": "huy2002109@gmail.com",
+      "password": "$2a$10$F5kcVp8K653ZNHHafMK0FOULV14LK9PEyVWTULlQr46wK01SZh4AG",
+      "firstName": "Huy",
+      "lastName": "Hoang",
+      "age": "20",
+      "id": 1
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   View,
   Text,
@@ -10,24 +10,55 @@ import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import HeaderLogin from './login/HeaderLogin';
 import SavePassword from './login/SavePassword';
+import { useDispatch, useSelector } from 'react-redux';
+import { accessTokenSelector } from '../store/auths/selector';
+import { isSuccessSelector } from '../store/auths/selector';
+import { loginAsyncThunk } from '../store/auths/thunk';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { resetIsSuccessStateAction } from '../store/auths/action';
 
 const Login = () => {
-  const [number, setNumber] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const navigation = useNavigation();
+  const accessToken = useSelector(accessTokenSelector)
+  const isSuccess = useSelector(isSuccessSelector)
+  const dispatch = useDispatch()
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
   const handleLogin = () => {
-    if (number === '123' && password === '123') {
-      navigation.navigate('HomeScreen');
-    } else {
-      console.log('Invalid login credentials');
-    }
+    dispatch(loginAsyncThunk({
+      email,
+      password
+    }))
   };
+
+  useEffect(() => {
+    (async () => {
+      try {
+        {
+          if (isSuccess === true) {
+            await AsyncStorage.setItem("accessToken", accessToken)
+            navigation.navigate("HomeScreen")
+          } else if (isSuccess === false) {
+            alert("Invalid login credentials")
+          }
+        }
+      } catch (error) {
+        alert("Invalid login credentials")
+        dispatch(resetIsSuccessStateAction())
+      }
+    })()
+    return () => {
+      if (isSuccess === true || isSuccess === false) {
+        dispatch(resetIsSuccessStateAction())
+      }
+    }
+  }, [isSuccess])
 
   return (
     <View>
@@ -35,13 +66,13 @@ const Login = () => {
       <View style={styles.container}>
         <View>
           <View style={{ display: 'flex', flexDirection: 'row', gap: 5 }}>
-            <Text>Số điện thoại</Text>
+            <Text>Email</Text>
             <Text style={{ color: 'red' }}>*</Text>
           </View>
           <TextInput
-            placeholder="Nhập số điện thoại"
-            value={number}
-            onChangeText={setNumber}
+            placeholder="Nhập email"
+            value={email}
+            onChangeText={setEmail}
             style={styles.textInput}
           />
         </View>

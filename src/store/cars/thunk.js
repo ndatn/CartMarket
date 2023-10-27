@@ -1,9 +1,9 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { getCars } from "../../services/car";
+import { getCarsAsync } from "../../services/car";
 
 export const getCarsAsyncThunk = createAsyncThunk("cars/get_car", async () => {
     try {
-        return await getCars()
+        return await getCarsAsync()
     } catch (error) {
         console.log(error)
         return error

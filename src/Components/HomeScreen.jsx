@@ -9,19 +9,17 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 import colors from './config/colors';
 
-import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
-const avatar = require('../../assets/avatar/avatar.jpg');
-import cars from './data/cars';
-import HeaderHomeScreen from './config/FooterHomeScreen';
-import icons from './data/icons';
+import { Ionicons } from '@expo/vector-icons';
 import FooterHomeScreen from './config/FooterHomeScreen';
 import { useDispatch, useSelector } from 'react-redux';
 import { carSelector } from '../store/cars/selector';
 import { getCarsAsyncThunk } from '../store/cars/thunk';
+import useAccessToken from '../hooks/useAccessToken';
+import jwt_decode from 'jwt-decode'
 
 const { width } = Dimensions.get('window');
 
@@ -30,7 +28,8 @@ const gradient = [colors['dark-gray'], colors.gray];
 const HomeScreen = () => {
   const cars = useSelector(carSelector);
   const dispatch = useDispatch();
-
+  const { accessToken } = useAccessToken()
+  // const userInfo = jwt_decode(accessToken)
   useEffect(() => {
     dispatch(getCarsAsyncThunk());
   }, []);
@@ -38,16 +37,19 @@ const HomeScreen = () => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <TouchableOpacity
-          style={{
-            width: 50,
-            height: 50,
-            borderRadius: 30,
-            marginLeft: 20,
-            marginTop: 50,
-            backgroundColor: 'black',
-          }}
-        />
+        <View>
+          <TouchableOpacity
+            style={{
+              width: 50,
+              height: 50,
+              borderRadius: 30,
+              marginLeft: 20,
+              marginTop: 50,
+              backgroundColor: 'black',
+            }}
+          />
+          {/* <Text>{userInfo?.email}</Text> */}
+        </View>
 
         <View
           style={{
