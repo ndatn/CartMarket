@@ -20,6 +20,7 @@ import { carSelector } from '../store/cars/selector';
 import { getCarsAsyncThunk } from '../store/cars/thunk';
 import useAccessToken from '../hooks/useAccessToken';
 import jwt_decode from 'jwt-decode'
+import { useNavigation } from '@react-navigation/native';
 
 const { width } = Dimensions.get('window');
 
@@ -28,11 +29,17 @@ const gradient = [colors['dark-gray'], colors.gray];
 const HomeScreen = () => {
   const cars = useSelector(carSelector);
   const dispatch = useDispatch();
-  const { accessToken } = useAccessToken()
+  const navigator = useNavigation()
   // const userInfo = jwt_decode(accessToken)
   useEffect(() => {
     dispatch(getCarsAsyncThunk());
   }, []);
+
+  const handleNavigateToDetailScreen = (id) => {
+    navigator.navigate("CarDetail", {
+      id
+    })
+  }
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -47,6 +54,7 @@ const HomeScreen = () => {
               marginTop: 50,
               backgroundColor: 'black',
             }}
+            onPress={() => navigator.navigate("UserProfile")}
           />
           {/* <Text>{userInfo?.email}</Text> */}
         </View>
@@ -177,103 +185,107 @@ const HomeScreen = () => {
             }}
           >
             {cars?.map(car => (
-              <LinearGradient
+              <TouchableOpacity       
                 key={car.id}
-                colors={gradient}
-                style={{
-                  height: 230,
-                  width: width / 2 - 10 * 3,
-                  borderRadius: 10 * 2,
-                  marginBottom: 10 * 2,
-                  padding: 10,
-                }}
+                onPress={handleNavigateToDetailScreen.bind(this, car?.id)}
               >
-                <View
+                <LinearGradient
+                  colors={gradient}
                   style={{
-                    flexDirection: 'row',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
+                    height: 230,
+                    width: width / 2 - 10 * 3,
+                    borderRadius: 10 * 2,
+                    marginBottom: 10 * 2,
+                    padding: 10,
                   }}
                 >
                   <View
                     style={{
                       flexDirection: 'row',
+                      justifyContent: 'space-between',
                       alignItems: 'center',
                     }}
                   >
-                    <Ionicons
-                      name="star"
-                      color={colors.yellow}
-                      size={10 * 1.6}
-                    />
+                    <View
+                      style={{
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                      }}
+                    >
+                      <Ionicons
+                        name="star"
+                        color={colors.yellow}
+                        size={10 * 1.6}
+                      />
+                      <Text
+                        style={{
+                          color: colors.light,
+                          marginLeft: 10 / 2,
+                        }}
+                      >
+                        {car.rating}
+                      </Text>
+                    </View>
+                    <TouchableOpacity>
+                      <Ionicons name="heart" color={colors.light} size={10 * 2} />
+                    </TouchableOpacity>
+                  </View>
+                  <Image
+                    style={{
+                      width: '100%',
+                      height: 100,
+                    }}
+                    source={{
+                      uri: car.image,
+                    }}
+                    resizeMode="contain"
+                  />
+                  <Text
+                    style={{
+                      fontSize: 10 * 1.8,
+                      color: colors.light,
+                    }}
+                  >
+                    {car.name}
+                  </Text>
+                  <View
+                    style={{
+                      marginVertical: 10,
+                      flexDirection: 'row',
+                      justifyContent: 'space-between',
+                    }}
+                  >
                     <Text
                       style={{
                         color: colors.light,
-                        marginLeft: 10 / 2,
+                        fontSize: 10 * 1.5,
                       }}
                     >
-                      {car.rating}
+                      $ {car.price}
                     </Text>
-                  </View>
-                  <TouchableOpacity>
-                    <Ionicons name="heart" color={colors.light} size={10 * 2} />
-                  </TouchableOpacity>
-                </View>
-                <Image
-                  style={{
-                    width: '100%',
-                    height: 100,
-                  }}
-                  source={{
-                    uri: car.image,
-                  }}
-                  resizeMode="contain"
-                />
-                <Text
-                  style={{
-                    fontSize: 10 * 1.8,
-                    color: colors.light,
-                  }}
-                >
-                  {car.name}
-                </Text>
-                <View
-                  style={{
-                    marginVertical: 10,
-                    flexDirection: 'row',
-                    justifyContent: 'space-between',
-                  }}
-                >
-                  <Text
-                    style={{
-                      color: colors.light,
-                      fontSize: 10 * 1.5,
-                    }}
-                  >
-                    $ {car.price}
-                  </Text>
-                  <TouchableOpacity
-                    style={{
-                      borderRadius: 10 / 2,
-                      overflow: 'hidden',
-                    }}
-                  >
-                    <LinearGradient
+                    <TouchableOpacity
                       style={{
-                        padding: 10 / 3,
-                        paddingHorizontal: 10 / 2,
+                        borderRadius: 10 / 2,
+                        overflow: 'hidden',
                       }}
-                      colors={[colors['dark-gray'], colors.dark]}
                     >
-                      <Ionicons
-                        name="arrow-forward"
-                        size={10 * 2}
-                        color={colors.light}
-                      />
-                    </LinearGradient>
-                  </TouchableOpacity>
-                </View>
-              </LinearGradient>
+                      <LinearGradient
+                        style={{
+                          padding: 10 / 3,
+                          paddingHorizontal: 10 / 2,
+                        }}
+                        colors={[colors['dark-gray'], colors.dark]}
+                      >
+                        <Ionicons
+                          name="arrow-forward"
+                          size={10 * 2}
+                          color={colors.light}
+                        />
+                      </LinearGradient>
+                    </TouchableOpacity>
+                  </View>
+                </LinearGradient>
+              </TouchableOpacity>
             ))}
           </View>
         </View>

@@ -6,7 +6,13 @@
             "price": "8083",
             "rating": "4", 
             "image": "https://assets.stickpng.com/images/61fc157680bcb6000427ccff.png",
-            "isMyFavorite": false
+            "isMyFavorite": false,
+            "year": "2002",
+            "style": "sport car",
+            "origin": "Tesla US",
+            "gearbox": "a",
+            "gasoline": "b",
+            "description": "this is a car"
         },
         {
             "id": "2",
@@ -14,7 +20,13 @@
             "price": "4350",
             "rating": "3",
             "isMyFavorite": true,
-            "image": "https://i.pinimg.com/originals/ef/f2/91/eff29127abbf0d8e5e99cda29401fa7f.png"
+            "image": "https://i.pinimg.com/originals/ef/f2/91/eff29127abbf0d8e5e99cda29401fa7f.png",
+            "year": "2002",
+            "style": "sport car",
+            "origin": "Tesla US",
+            "gearbox": "a",
+            "gasoline": "b",
+            "description": "this is a car"
         },
         {
             "id": "3",
@@ -22,7 +34,13 @@
             "price": "2500",
             "rating": "3",
             "isMyFavorite": false,
-            "image": "https://crdms.images.consumerreports.org/c_lfill,w_470,q_auto,f_auto/prod/cars/cr/car-versions/12630-2018-tesla-model-3-long-range"
+            "image": "https://crdms.images.consumerreports.org/c_lfill,w_470,q_auto,f_auto/prod/cars/cr/car-versions/12630-2018-tesla-model-3-long-range",
+            "year": "2002",
+            "style": "sport car",
+            "origin": "Tesla US",
+            "gearbox": "a",
+            "gasoline": "b",
+            "description": "this is a car"
         },
         {
             "id": "4",
@@ -30,7 +48,13 @@
             "price": "3000",
             "rating": "4",
             "isMyFavorite": false,
-            "image": "https://assets.stickpng.com/images/580b585b2edbce24c47b2ccc.png"
+            "image": "https://assets.stickpng.com/images/580b585b2edbce24c47b2ccc.png",
+            "year": "2002",
+            "style": "sport car",
+            "origin": "Tesla US",
+            "gearbox": "a",
+            "gasoline": "b",
+            "description": "this is a car"
         }
     ]
 }
