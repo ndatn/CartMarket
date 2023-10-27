@@ -4,8 +4,13 @@ import { Ionicons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import useSession from '../hooks/useSession';
 
 const MainScreen = ({ navigation }) => {
+  const session = useSession()
+
+  useEffect(() => session, [])
+    
   const handleLogin = () => {
     navigation.navigate('Login');
   };

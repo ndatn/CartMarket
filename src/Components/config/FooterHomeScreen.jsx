@@ -11,7 +11,7 @@ import {
 import { LinearGradient } from 'expo-linear-gradient';
 import icons from '../data/icons';
 import colors from './colors';
-
+import { Ionicons } from '@expo/vector-icons';
 const FooterHomeScreen = () => {
   const { width } = Dimensions.get('window');
   const gradient = [colors['dark-gray'], colors.gray];
@@ -19,19 +19,96 @@ const FooterHomeScreen = () => {
   return (
     <SafeAreaView>
       <View style={styles.container}>
-        {icons.map(icon => (
-          <LinearGradient
-            key={icon.id}
-            colors={gradient}
-            style={{
-              height: 50,
-              width: width / 6 - 5,
-              borderRadius: 15,
-              marginBottom: 5,
-              padding: 3,
-            }}
-          ></LinearGradient>
-        ))}
+        <LinearGradient
+          colors={gradient}
+          style={{
+            margin: 5,
+            marginLeft: 30,
+            height: 50,
+            width: width / 6 - 4,
+            borderRadius: 15,
+            marginBottom: 5,
+            padding: 5,
+          }}
+        >
+          <TouchableOpacity>
+            <Ionicons
+              name="home"
+              size={40}
+              color="#D3D3D3"
+              style={{
+                marginLeft: 6,
+              }}
+            />
+          </TouchableOpacity>
+        </LinearGradient>
+        <LinearGradient
+          colors={gradient}
+          style={{
+            margin: 5,
+            height: 50,
+            width: width / 6 - 4,
+            borderRadius: 15,
+            marginBottom: 5,
+            padding: 5,
+          }}
+        >
+          <TouchableOpacity>
+            <Ionicons
+              name="book"
+              size={40}
+              color="#D3D3D3"
+              style={{
+                marginLeft: 6,
+              }}
+            />
+          </TouchableOpacity>
+        </LinearGradient>
+        <LinearGradient
+          colors={gradient}
+          style={{
+            margin: 5,
+            height: 50,
+            width: width / 6 - 4,
+            borderRadius: 15,
+            marginBottom: 5,
+            padding: 5,
+          }}
+        >
+          <TouchableOpacity>
+            <Ionicons
+              name="heart"
+              size={40}
+              color="#D3D3D3"
+              style={{
+                marginLeft: 6,
+              }}
+            />
+          </TouchableOpacity>
+        </LinearGradient>
+        <LinearGradient
+          colors={gradient}
+          style={{
+            margin: 5,
+            marginRight: 30,
+            height: 50,
+            width: width / 6 - 4,
+            borderRadius: 15,
+            marginBottom: 5,
+            padding: 5,
+          }}
+        >
+          <TouchableOpacity>
+            <Ionicons
+              name="close"
+              size={40}
+              color="#D3D3D3"
+              style={{
+                marginLeft: 6,
+              }}
+            />
+          </TouchableOpacity>
+        </LinearGradient>
       </View>
     </SafeAreaView>
   );
@@ -39,13 +116,15 @@ const FooterHomeScreen = () => {
 
 const styles = StyleSheet.create({
   container: {
-    margin: '1%',
+    backgroundColor: '#D3D3D3',
     marginVertical: 0,
     marginTop: 5,
     flexDirection: 'row',
     justifyContent: 'space-between',
     borderBottomWidth: 1,
     borderBottomColor: 'gray',
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
   },
 });
 

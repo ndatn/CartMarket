@@ -35,6 +35,24 @@ const cars = [
     isMyFavorite: false,
     company_id: 1,
   },
+  {
+    id: 4,
+    name: 'Tesla model s',
+    image: require('../../../assets/cars/Red-Tesla-Model-S-PNG.png'),
+    price: 14.2,
+    rating: 4.3,
+    isMyFavorite: false,
+    company_id: 1,
+  },
+  {
+    id: 4,
+    name: 'Tesla model s',
+    image: require('../../../assets/cars/Red-Tesla-Model-S-PNG.png'),
+    price: 14.2,
+    rating: 4.3,
+    isMyFavorite: false,
+    company_id: 1,
+  },
 ];
 
 export default cars;

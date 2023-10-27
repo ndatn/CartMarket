@@ -1,7 +1,9 @@
 const initialState = {
     cars: [],
     isSuccess: undefined,
-    error: undefined
+    error: undefined,
+    isLoading: undefined,
+    car: {}
 }
 
 export default initialState
