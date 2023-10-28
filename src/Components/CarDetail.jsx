@@ -11,7 +11,7 @@ import {
 import { useDispatch, useSelector } from "react-redux"
 import { Ionicons } from '@expo/vector-icons';
 import { carByIdSelector, isLoadingSelector, isSuccessSelector } from "../store/cars/selector"
-import { useRoute } from "@react-navigation/native"
+import { useNavigation, useRoute } from "@react-navigation/native"
 import { getCarByIdAsyncThunk } from "../store/cars/thunk"
 import * as dimension from '../utils/dimension'
 import colors from '../utils/color';
@@ -27,6 +27,7 @@ const CarDetail = () => {
     const isSuccess = useSelector(isSuccessSelector)
     const isLoading = useSelector(isLoadingSelector)
     const { params } = useRoute()
+    const navigator = useNavigation()
 
     useEffect(() => {
         dispatch(getCarByIdAsyncThunk({
@@ -72,6 +73,7 @@ const CarDetail = () => {
                 alignItems: 'center',
                 borderRadius: 10 * 2.5,
               }}
+              onPress={() => navigator.goBack()}
             >
               <Ionicons name="arrow-back" size={10 * 2.5} color={colors.gray} />
             </TouchableOpacity>
