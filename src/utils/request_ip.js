@@ -6,8 +6,12 @@ export const REQUEST_IP = MODE === 'DEVELOPMENT' ? '192.168.1.10:8081' : '';
 
 export const AUTH_IP = MODE === 'DEVELOPMENT' ? '192.168.1.10:5000' : '';
 
+export const DECODE_TOKEN_IP = MODE === 'DEVELOPMENT' ? '192.168.1.10:5200' : '';
+
 export const REQUEST_URL = `${PROTOCOL}://${REQUEST_IP}`;
 
 export const AUTH_URL = `${PROTOCOL}://${AUTH_IP}`;
+
+export const DECODE_TOKEN_URL = `${PROTOCOL}://${DECODE_TOKEN_IP}`
 
 export const LOCAL_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwidXNlcm5hbWUiOiJodXkyMDAyMTA5IiwiZ21haWwiOiJodXkyMDAyMTA5QGdtYWlsLmNvbSIsImF2YXRhciI6Imh0dHBzOi8vY2RuLWljb25zLXBuZy5mbGF0aWNvbi5jb20vNTEyLzY1OTYvNjU5NjEyMS5wbmciLCJpYXQiOjE1MTYyMzkwMjJ9.3hLzYtldBb_7_1SWGZNgLAsXzHRUxNSEYi1V4eYQiGQ"

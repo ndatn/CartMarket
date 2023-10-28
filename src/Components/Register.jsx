@@ -29,7 +29,6 @@ const Register = () => {
   const dispatch = useDispatch()
 
   const isSuccess = useSelector(isSuccessSelector)
-  console.log(isSuccess)
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
