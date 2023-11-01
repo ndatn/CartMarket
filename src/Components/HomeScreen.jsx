@@ -134,14 +134,14 @@ const HomeScreen = () => {
                 marginBottom: 10,
               }}
             >
-              New Arrival
+              Week Deals
             </Text>
             <Text
               style={{
                 color: colors.light,
               }}
             >
-              Get a new car discount, only valid this friday
+              Get a new car discount. only valid this week
             </Text>
           </View>
           <View
@@ -155,7 +155,7 @@ const HomeScreen = () => {
                 width: '100%',
                 height: 100,
               }}
-              source={require('../../assets/cars/bmw-wlcom.png')}
+              source={require('../../assets/cars/2.png')}
             />
           </View>
         </LinearGradient>
@@ -267,26 +267,6 @@ const HomeScreen = () => {
                     >
                       $ {car.price}
                     </Text>
-                    <TouchableOpacity
-                      style={{
-                        borderRadius: 10 / 2,
-                        overflow: 'hidden',
-                      }}
-                    >
-                      <LinearGradient
-                        style={{
-                          padding: 10 / 3,
-                          paddingHorizontal: 10 / 2,
-                        }}
-                        colors={[colors['dark-gray'], colors.dark]}
-                      >
-                        <Ionicons
-                          name="arrow-forward"
-                          size={10 * 2}
-                          color={colors.light}
-                        />
-                      </LinearGradient>
-                    </TouchableOpacity>
                   </View>
                 </LinearGradient>
               </TouchableOpacity>

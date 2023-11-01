@@ -12,10 +12,12 @@ import { LinearGradient } from 'expo-linear-gradient';
 import icons from '../data/icons';
 import colors from './colors';
 import { Ionicons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
+import { HomeScreen } from '../HomeScreen';
 const FooterHomeScreen = () => {
   const { width } = Dimensions.get('window');
   const gradient = [colors['dark-gray'], colors.gray];
-
+  const navigator = useNavigation();
   return (
     <SafeAreaView>
       <View style={styles.container}>
@@ -31,7 +33,7 @@ const FooterHomeScreen = () => {
             padding: 5,
           }}
         >
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigator.navigate('HomeScreen')}>
             <Ionicons
               name="home"
               size={40}

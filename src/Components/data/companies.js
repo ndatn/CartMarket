@@ -4,12 +4,12 @@ const companies = [
   {
     id: 1,
     name: 'tesla',
-    logo: '../../assets/logos/tesla.png',
+    logo: '../../assets/logos/bmw.png',
   },
   {
     id: 2,
     name: 'bmw',
-    logo: '../../assets/logos/bmw.png',
+    logo: '../../assets/logos/tesla.png',
   },
 ];
 

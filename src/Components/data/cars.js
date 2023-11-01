@@ -2,7 +2,7 @@ const cars = [
   {
     id: 1,
     name: 'Tesla model y',
-    image: require('../../../assets/cars/Tesla-Model-Y-PNG-Image.png'),
+    image: require('../../../assets/cars/4.png'),
     price: 8.982,
     rating: 4.5,
     isMyFavorite: false,
@@ -11,7 +11,7 @@ const cars = [
   {
     id: 2,
     name: 'Tesla model x',
-    image: require('../../../assets/cars/Tesla-Model-X-PNG-Isolated-Pic.png'),
+    image: require('../../../assets/cars/5.png'),
     price: 5.67,
     rating: 3.5,
     isMyFavorite: true,
@@ -20,7 +20,7 @@ const cars = [
   {
     id: 3,
     name: 'Tesla model 3',
-    image: require('../../../assets/cars/Tesla-Model-3-PNG-Isolated-HD.png'),
+    image: require('../../../assets/cars/6.png'),
     price: 9.42,
     rating: 3.3,
     isMyFavorite: false,
@@ -29,7 +29,7 @@ const cars = [
   {
     id: 4,
     name: 'Tesla model s',
-    image: require('../../../assets/cars/Red-Tesla-Model-S-PNG.png'),
+    image: require('../../../assets/cars/7.png'),
     price: 14.2,
     rating: 4.3,
     isMyFavorite: false,
@@ -38,7 +38,7 @@ const cars = [
   {
     id: 4,
     name: 'Tesla model s',
-    image: require('../../../assets/cars/Red-Tesla-Model-S-PNG.png'),
+    image: require('../../../assets/cars/8.png'),
     price: 14.2,
     rating: 4.3,
     isMyFavorite: false,
@@ -47,7 +47,7 @@ const cars = [
   {
     id: 4,
     name: 'Tesla model s',
-    image: require('../../../assets/cars/Red-Tesla-Model-S-PNG.png'),
+    image: require('../../../assets/cars/9.png'),
     price: 14.2,
     rating: 4.3,
     isMyFavorite: false,
