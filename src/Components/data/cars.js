@@ -1,6 +1,6 @@
 const cars = [
   {
-    id: 1,
+    id: 0,
     name: 'Tesla model y',
     image: require('../../../assets/cars/4.png'),
     price: 8.982,
@@ -9,7 +9,7 @@ const cars = [
     company_id: 1,
   },
   {
-    id: 2,
+    id: 1,
     name: 'Tesla model x',
     image: require('../../../assets/cars/5.png'),
     price: 5.67,
@@ -18,7 +18,7 @@ const cars = [
     company_id: 1,
   },
   {
-    id: 3,
+    id: 2,
     name: 'Tesla model 3',
     image: require('../../../assets/cars/6.png'),
     price: 9.42,
@@ -27,7 +27,7 @@ const cars = [
     company_id: 1,
   },
   {
-    id: 4,
+    id: 3,
     name: 'Tesla model s',
     image: require('../../../assets/cars/7.png'),
     price: 14.2,
@@ -45,9 +45,27 @@ const cars = [
     company_id: 1,
   },
   {
-    id: 4,
+    id: 5,
     name: 'Tesla model s',
     image: require('../../../assets/cars/9.png'),
+    price: 14.2,
+    rating: 4.3,
+    isMyFavorite: false,
+    company_id: 1,
+  },
+  {
+    id: 6,
+    name: 'Tesla model s',
+    image: require('../../../assets/cars/10.png'),
+    price: 14.2,
+    rating: 4.3,
+    isMyFavorite: false,
+    company_id: 1,
+  },
+  {
+    id: 7,
+    name: 'Tesla model s',
+    image: require('../../../assets/cars/11.png'),
     price: 14.2,
     rating: 4.3,
     isMyFavorite: false,

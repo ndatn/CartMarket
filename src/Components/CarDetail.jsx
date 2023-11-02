@@ -7,6 +7,7 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Share,
 } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { Ionicons } from '@expo/vector-icons';
@@ -23,7 +24,7 @@ import { useEffect } from 'react';
 import Loading from './base-component/loading';
 import { resetBehaviorStateAction } from '../store/cars/slice';
 import { useNavigation } from '@react-navigation/native';
-
+import ShareE from './Share';
 const CarDetail = () => {
   const height = dimension.height;
   const dispatch = useDispatch();

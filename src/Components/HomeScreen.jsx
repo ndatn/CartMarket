@@ -22,7 +22,8 @@ import { getCarsAsyncThunk } from '../store/cars/thunk';
 import useAccessToken from '../hooks/useAccessToken';
 import jwt_decode from 'jwt-decode';
 import { useNavigation } from '@react-navigation/native';
-import MainScreen from './MainScreen';
+import Deals from './Deals';
+import HomeList from './HomeList';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -80,6 +81,7 @@ const HomeScreen = () => {
             justifyContent: 'center',
           }}
         >
+          <View></View>
           <LinearGradient colors={gradient} style={{ borderRadius: 14 }}>
             <TextInput
               style={{
@@ -303,11 +305,21 @@ export default function App() {
         options={{
           tabBarLabel: '',
           tabBarIcon: ({ color }) => (
-            <Ionicons name="home" color={color} size={26} />
+            <Ionicons name="book" color={color} size={26} />
           ),
         }}
-        name="Main"
-        component={MainScreen}
+        name="Deals"
+        component={Deals}
+      />
+      <Tab.Screen
+        options={{
+          tabBarLabel: '',
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="book" color={color} size={26} />
+          ),
+        }}
+        name="List"
+        component={HomeList}
       />
     </Tab.Navigator>
   );
