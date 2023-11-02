@@ -13,14 +13,18 @@ import React, { useEffect, useState } from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 import colors from './config/colors';
 
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+
 import { Ionicons } from '@expo/vector-icons';
-import FooterHomeScreen from './config/FooterHomeScreen';
 import { useDispatch, useSelector } from 'react-redux';
 import { carSelector } from '../store/cars/selector';
 import { getCarsAsyncThunk } from '../store/cars/thunk';
 import useAccessToken from '../hooks/useAccessToken';
 import jwt_decode from 'jwt-decode';
 import { useNavigation } from '@react-navigation/native';
+import MainScreen from './MainScreen';
+
+const Tab = createMaterialBottomTabNavigator();
 
 const { width } = Dimensions.get('window');
 
@@ -274,11 +278,38 @@ const HomeScreen = () => {
           </View>
         </View>
       </ScrollView>
-      <FooterHomeScreen />
     </SafeAreaView>
   );
 };
 
-export default HomeScreen;
-
+export default function App() {
+  return (
+    <Tab.Navigator
+      activeColor="black"
+      inactiveColor="gray"
+      barStyle={{ backgroundColor: 'white', height: 40 }}
+    >
+      <Tab.Screen
+        options={{
+          tabBarLabel: '',
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="home" color={color} size={26} />
+          ),
+        }}
+        name="Home"
+        component={HomeScreen}
+      />
+      <Tab.Screen
+        options={{
+          tabBarLabel: '',
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="home" color={color} size={26} />
+          ),
+        }}
+        name="Main"
+        component={MainScreen}
+      />
+    </Tab.Navigator>
+  );
+}
 const styles = StyleSheet.create({});
