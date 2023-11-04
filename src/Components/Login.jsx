@@ -22,19 +22,21 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const navigation = useNavigation();
-  const accessToken = useSelector(accessTokenSelector)
-  const isSuccess = useSelector(isSuccessSelector)
-  const dispatch = useDispatch()
+  const accessToken = useSelector(accessTokenSelector);
+  const isSuccess = useSelector(isSuccessSelector);
+  const dispatch = useDispatch();
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
   const handleLogin = () => {
-    dispatch(loginAsyncThunk({
-      email,
-      password
-    }))
+    dispatch(
+      loginAsyncThunk({
+        email,
+        password,
+      })
+    );
   };
 
   useEffect(() => {
@@ -42,23 +44,23 @@ const Login = () => {
       try {
         {
           if (isSuccess === true) {
-            await AsyncStorage.setItem("accessToken", accessToken)
-            navigation.navigate("HomeScreen")
+            await AsyncStorage.setItem('accessToken', accessToken);
+            navigation.navigate('HomeScreen');
           } else if (isSuccess === false) {
-            alert("Invalid login credentials")
+            alert('Invalid login credentials');
           }
         }
       } catch (error) {
-        alert("Invalid login credentials")
-        dispatch(resetIsSuccessStateAction())
+        alert('Invalid login credentials');
+        dispatch(resetIsSuccessStateAction());
       }
-    })()
+    })();
     return () => {
       if (isSuccess === true || isSuccess === false) {
-        dispatch(resetIsSuccessStateAction())
+        dispatch(resetIsSuccessStateAction());
       }
-    }
-  }, [isSuccess])
+    };
+  }, [isSuccess]);
 
   return (
     <View>

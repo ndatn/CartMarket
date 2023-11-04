@@ -7,14 +7,6 @@
       "lastName": "Hoang",
       "age": "20",
       "id": 1
-    },
-    {
-      "email": "ndaten0@gmail.com",
-      "password": "$2a$10$S/kspTOv1gzFc1IJigLFzOctV8rVDhqm17F1h5W.SI6U5A6M2WCu2",
-      "firstName": "Dat",
-      "lastName": "Nguyen",
-      "age": "21",
-      "id": 2
     }
   ]
 }

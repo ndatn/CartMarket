@@ -35,9 +35,9 @@ const UserProfile = () => {
       <Text style={{ marginLeft: 80, marginTop: -45, fontSize: 30 }}>User</Text>
       <View style={styles.buttonGroup}>
         <TouchableOpacity style={styles.button}>
-          <Text style={{ fontSize: 20 }}>Hoang Le Huy</Text>
+          <Text style={{ fontSize: 20 }}>Nguyen Dat</Text>
           <Text style={{ fontSize: 12, marginTop: 5, color: '#718096' }}>
-            huy2002109@gmail.com
+            ndaten0@gmail.com
           </Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={handleLogout}>

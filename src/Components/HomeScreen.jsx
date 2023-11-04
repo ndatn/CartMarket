@@ -12,10 +12,9 @@ import {
 import React, { useEffect, useState } from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 import colors from './config/colors';
-
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-
 import { Ionicons } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { carSelector } from '../store/cars/selector';
 import { getCarsAsyncThunk } from '../store/cars/thunk';
@@ -26,11 +25,8 @@ import Deals from './Deals';
 import HomeList from './HomeList';
 
 const Tab = createMaterialBottomTabNavigator();
-
 const { width } = Dimensions.get('window');
-
 const gradient = [colors['dark-gray'], colors.gray];
-
 const HomeScreen = () => {
   const cars = useSelector(carSelector);
   const dispatch = useDispatch();
@@ -62,6 +58,30 @@ const HomeScreen = () => {
             onPress={() => navigator.navigate('UserProfile')}
           />
           {/* <Text>{userInfo?.email}</Text> */}
+          <TouchableOpacity>
+            <Ionicons
+              style={{
+                position: 'absolute',
+                marginLeft: 330,
+                marginTop: -40,
+              }}
+              size={10 * 2.5}
+              color="black"
+              name="notifications"
+            />
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Ionicons
+              style={{
+                position: 'absolute',
+                marginLeft: 290,
+                marginTop: -40,
+              }}
+              size={10 * 2.5}
+              color="black"
+              name="list"
+            />
+          </TouchableOpacity>
         </View>
 
         <View
@@ -289,13 +309,13 @@ export default function App() {
     <Tab.Navigator
       activeColor="black"
       inactiveColor="gray"
-      barStyle={{ backgroundColor: 'white', height: 40 }}
+      barStyle={{ backgroundColor: 'white', height: 45 }}
     >
       <Tab.Screen
         options={{
           tabBarLabel: '',
           tabBarIcon: ({ color }) => (
-            <Ionicons name="home" color={color} size={26} />
+            <Ionicons name="home" color={color} size={25} />
           ),
         }}
         name="Home"
@@ -305,7 +325,7 @@ export default function App() {
         options={{
           tabBarLabel: '',
           tabBarIcon: ({ color }) => (
-            <Ionicons name="book" color={color} size={26} />
+            <Ionicons name="book" color={color} size={25} />
           ),
         }}
         name="Deals"
@@ -315,7 +335,7 @@ export default function App() {
         options={{
           tabBarLabel: '',
           tabBarIcon: ({ color }) => (
-            <Ionicons name="book" color={color} size={26} />
+            <FontAwesome name="th-list" size={25} color={color} />
           ),
         }}
         name="List"

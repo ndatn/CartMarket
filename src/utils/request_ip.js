@@ -1,11 +1,11 @@
 import { MODE } from './application_mode';
 
 export const PROTOCOL = MODE === 'DEVELOPMENT' ? 'http' : 'https';
-//thay ip 192.168.1.10  thanh IP card mang cua may
-//json-server --host 192.168.1.7 --port 8081 cars.json
-export const REQUEST_IP = MODE === 'DEVELOPMENT' ? '192.168.1.7:8081' : '';
+//thay ip 192.168.1.10  thanh IP card mang cua may 192.168.168.54:8081
+//json-server --host 192.168.1.7 --port 8081 cars.json 192.168.168.54:5000
+export const REQUEST_IP = MODE === 'DEVELOPMENT' ? '192.168.168.54:8081' : '';
 
-export const AUTH_IP = MODE === 'DEVELOPMENT' ? '192.168.1.7:5000' : '';
+export const AUTH_IP = MODE === 'DEVELOPMENT' ? '192.168.168.54:5000' : '';
 
 export const REQUEST_URL = `${PROTOCOL}://${REQUEST_IP}`;
 
