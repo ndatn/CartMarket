@@ -14,10 +14,19 @@ import { LinearGradient } from 'expo-linear-gradient';
 import colors from './config/colors';
 import { Ionicons } from '@expo/vector-icons';
 import cars from './data/cars';
+import { useNavigation } from '@react-navigation/native'
 const { width } = Dimensions.get('window');
 
 const gradient = [colors['dark-gray'], colors.gray];
 const HomeList = () => {
+  const navigation = useNavigation()
+
+  const handleNavigateToDetailScreen = (id) => {
+    navigation.navigate('CarDetail', {
+      id,
+    });
+  }
+
   return (
     <SafeAreaView>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -44,7 +53,7 @@ const HomeList = () => {
           }}
         >
           {cars.map(car => (
-            <TouchableOpacity key={car.id}>
+            <TouchableOpacity key={car.id} onPress={handleNavigateToDetailScreen.bind(this, car?.id)}>
               <LinearGradient
                 colors={gradient}
                 style={{
