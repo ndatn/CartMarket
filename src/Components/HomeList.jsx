@@ -11,21 +11,28 @@ import {
 } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useDispatch, useSelector } from 'react-redux';
 import colors from './config/colors';
 import { Ionicons } from '@expo/vector-icons';
 import cars from './data/cars';
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation } from '@react-navigation/native';
 const { width } = Dimensions.get('window');
+import { carSelector } from '../store/cars/selector';
+import { getCarsAsyncThunk } from '../store/cars/thunk';
 
 const gradient = [colors['dark-gray'], colors.gray];
 const HomeList = () => {
-  const navigation = useNavigation()
-
-  const handleNavigateToDetailScreen = (id) => {
+  const navigation = useNavigation();
+  const cars = useSelector(carSelector);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getCarsAsyncThunk());
+  }, []);
+  const handleNavigateToDetailScreen = id => {
     navigation.navigate('CarDetail', {
       id,
     });
-  }
+  };
 
   return (
     <SafeAreaView>
@@ -53,7 +60,10 @@ const HomeList = () => {
           }}
         >
           {cars.map(car => (
-            <TouchableOpacity key={car.id} onPress={handleNavigateToDetailScreen.bind(this, car?.id)}>
+            <TouchableOpacity
+              key={car.id}
+              onPress={handleNavigateToDetailScreen.bind(this, car?.id)}
+            >
               <LinearGradient
                 colors={gradient}
                 style={{
@@ -100,7 +110,9 @@ const HomeList = () => {
                     width: '100%',
                     height: 100,
                   }}
-                  source={car.image}
+                  source={{
+                    uri: car.image,
+                  }}
                   resizeMode="contain"
                 />
                 <Text

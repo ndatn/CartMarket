@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { CheckBox } from 'react-native-elements';
 import {
   View,
   Text,
@@ -10,7 +9,6 @@ import {
 } from 'react-native';
 import AcceptPolicy from './register/AcceptPolicy';
 import { Ionicons } from '@expo/vector-icons';
-import RegisterNote from './register/RegisterNote';
 import Header from './register/HeaderRegister';
 import { useDispatch, useSelector } from 'react-redux';
 import { isSuccessSelector } from '../store/auths/selector';
@@ -20,38 +18,40 @@ import { registerAsyncThunk } from '../store/auths/thunk';
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [ firstName, setFirstName ] = useState("")
-  const [ lastName, setLastName ] = useState("")
-  const [ email, setEmail ] = useState("")
-  const [ password, setPassword ] = useState("")
-  const [ age, setAge ] = useState("")
-  const navigation = useNavigation()
-  const dispatch = useDispatch()
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [age, setAge] = useState('');
+  const navigation = useNavigation();
+  const dispatch = useDispatch();
 
-  const isSuccess = useSelector(isSuccessSelector)
-  console.log(isSuccess)
+  const isSuccess = useSelector(isSuccessSelector);
+  console.log(isSuccess);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
   const handleRegister = () => {
-    dispatch(registerAsyncThunk({
-      firstName,
-      lastName,
-      email,
-      age,
-      password
-    }))
-  }
+    dispatch(
+      registerAsyncThunk({
+        firstName,
+        lastName,
+        email,
+        age,
+        password,
+      })
+    );
+  };
 
   useEffect(() => {
     if (isSuccess === true) {
-      alert("register successfully")
+      alert('register successfully');
     } else if (isSuccess === false) {
-      alert("login failed")
+      alert('login failed');
     }
-  }, [isSuccess])
+  }, [isSuccess]);
 
   // useEffect(() => {
   //   if (isSuccess === true) {
@@ -65,9 +65,9 @@ const Register = () => {
   // }, [isSuccess, navigation])
 
   return (
-    <View style={{ height: "100%" }}>
+    <View style={{ height: '100%' }}>
       <Header />
-      <ScrollView showsVerticalScrollIndicator={false}>  
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.container}>
           <View>
             <View style={{ display: 'flex', flexDirection: 'row', gap: 5 }}>
@@ -75,7 +75,12 @@ const Register = () => {
               <Text style={{ color: 'red' }}>*</Text>
             </View>
             <View>
-              <TextInput placeholder="Nhập firstname" style={styles.textInput} value={firstName} onChangeText={setFirstName}/>
+              <TextInput
+                placeholder="Nhập firstname"
+                style={styles.textInput}
+                value={firstName}
+                onChangeText={setFirstName}
+              />
             </View>
           </View>
           <View>
@@ -84,7 +89,12 @@ const Register = () => {
               <Text style={{ color: 'red' }}>*</Text>
             </View>
             <View>
-              <TextInput placeholder="Nhập lastname" style={styles.textInput} value={lastName} onChangeText={setLastName}/>
+              <TextInput
+                placeholder="Nhập lastname"
+                style={styles.textInput}
+                value={lastName}
+                onChangeText={setLastName}
+              />
             </View>
           </View>
           <View>
@@ -93,7 +103,12 @@ const Register = () => {
               <Text style={{ color: 'red' }}>*</Text>
             </View>
             <View>
-              <TextInput placeholder="Nhập email" style={styles.textInput} value={email} onChangeText={setEmail} />
+              <TextInput
+                placeholder="Nhập email"
+                style={styles.textInput}
+                value={email}
+                onChangeText={setEmail}
+              />
             </View>
           </View>
           <View>
@@ -158,24 +173,24 @@ const Register = () => {
             </View>
           </View>
         </View>
-      <RegisterNote />
-      <AcceptPolicy />
-      <View style={{ paddingHorizontal: 20 }}>
-        <TouchableOpacity
-          onPress={handleRegister}
-          style={{
-            backgroundColor: 'gray',
-            padding: 14,
-            margin: '2.5%',
-            borderRadius: 7,
-            width: '94%',
-          }}
-        >
-          <Text style={{ color: 'white', fontSize: 15, textAlign: 'center' }}>
-            Đăng ký tài khoản
-          </Text>
-        </TouchableOpacity>
-      </View>
+        {/* <RegisterNote /> */}
+        <AcceptPolicy />
+        <View style={{ paddingHorizontal: 20 }}>
+          <TouchableOpacity
+            onPress={handleRegister}
+            style={{
+              backgroundColor: 'gray',
+              padding: 14,
+              margin: '2.5%',
+              borderRadius: 7,
+              width: '94%',
+            }}
+          >
+            <Text style={{ color: 'white', fontSize: 15, textAlign: 'center' }}>
+              Đăng ký tài khoản
+            </Text>
+          </TouchableOpacity>
+        </View>
       </ScrollView>
     </View>
   );
