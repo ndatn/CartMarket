@@ -2,8 +2,8 @@
   "cars": [
     {
       "id": "1",
-      "name": "Testla model y",
-      "price": "8083",
+      "name": "Testla y",
+      "price": "8893",
       "rating": "4",
       "image": "https://assets.stickpng.com/images/61fc157680bcb6000427ccff.png",
       "isMyFavorite": false,
@@ -16,7 +16,7 @@
     },
     {
       "id": "2",
-      "name": "Testla model x",
+      "name": "Testla x",
       "price": "4350",
       "rating": "3",
       "isMyFavorite": true,
@@ -30,7 +30,7 @@
     },
     {
       "id": "3",
-      "name": "Tesla model 3",
+      "name": "Tesla 3",
       "price": "2500",
       "rating": "3",
       "isMyFavorite": true,
@@ -44,8 +44,8 @@
     },
     {
       "id": "4",
-      "name": "Tesla model s",
-      "price": "3000",
+      "name": "Tesla x",
+      "price": "3600",
       "rating": "4",
       "isMyFavorite": true,
       "image": "https://assets.stickpng.com/images/580b585b2edbce24c47b2ccc.png",
@@ -58,8 +58,8 @@
     },
     {
       "id": "5",
-      "name": "Tesla model s",
-      "price": "3000",
+      "name": "Tesla x",
+      "price": "3800",
       "rating": "4",
       "isMyFavorite": true,
       "image": "https://assets.stickpng.com/images/580b585b2edbce24c47b2ccc.png",
@@ -72,7 +72,7 @@
     },
     {
       "id": "6",
-      "name": "Tesla model s",
+      "name": "Tesla s",
       "price": "3000",
       "rating": "4",
       "isMyFavorite": false,

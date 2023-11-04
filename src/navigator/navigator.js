@@ -26,7 +26,7 @@ const Navigator = () => {
           <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="Register" component={Register} />
           <Stack.Screen name="HomeScreen" component={HomeScreen} />
-          <Stack.Screen name="UserProfile"  component={UserProfile}/>
+          <Stack.Screen name="UserProfile" component={UserProfile} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
